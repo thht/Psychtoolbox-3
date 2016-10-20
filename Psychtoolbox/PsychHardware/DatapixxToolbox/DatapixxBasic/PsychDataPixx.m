@@ -479,7 +479,7 @@ if cmd == 0
         % Make code unique for this frame, so no two consecutive psync
         % updates ever have the same psync token:
         % bitand(bitshift(x, -0), 255)
-        dpx.psync(2, 8) = mod(dpx.swapcount + 1, 256);
+        dpx.psync(2, 8) = mod(dpx.swapcount + 1, 128) * 2;
         
         % Blit it to top-left corner of framebuffer:
         glRasterPos2i(10, 1);
